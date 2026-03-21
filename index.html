@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candlewood Services | Construction & Remodeling | Cary, NC</title>
+<meta name="description" content="Candlewood Services LLC — Full-service construction and remodeling for residential and small commercial properties in Cary, NC and the Triangle. Backed by a team with $18B+ in real estate expertise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a18;
+    --stone: #3d3b35;
+    --sand: #c8b89a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --accent: #8b6f47;
+    --light-rule: #e2dbd0;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--light-rule);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem 6rem 4rem;
+    position: relative;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute; top: 15%; right: 0; bottom: 15%;
+    width: 1px;
+    background: var(--light-rule);
+  }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--stone);
+    line-height: 1.8;
+    max-width: 420px;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--ink);
+    padding: 1rem 2.25rem;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+    width: fit-content;
+  }
+  .hero-cta:hover { background: var(--accent); transform: translateY(-2px); }
+  .hero-cta svg { width: 14px; height: 14px; }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .hero-texture {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(200,184,154,0.15) 0%, transparent 60%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(200,184,154,0.06) 40px,
+        rgba(200,184,154,0.06) 41px
+      );
+  }
+  .hero-stat-block {
+    position: absolute;
+    bottom: 3rem; left: 3rem; right: 3rem;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--light-rule);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1s;
+  }
+  .stat {
+    background: var(--warm-white);
+    padding: 1.75rem;
+  }
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  .hero-img-fill {
+    position: absolute; inset: 0 0 220px 0;
+    background:
+      linear-gradient(to bottom, rgba(245,240,232,0.1) 0%, rgba(245,240,232,0.4) 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23c8b89a' opacity='0.3'/%3E%3Cline x1='0' y1='0' x2='400' y2='500' stroke='%238b6f47' stroke-width='0.5' opacity='0.2'/%3E%3Cline x1='400' y1='0' x2='0' y2='500' stroke='%238b6f47' stroke-width='0.5' opacity='0.2'/%3E%3Crect x='60' y='80' width='280' height='340' rx='2' fill='none' stroke='%238b6f47' stroke-width='1' opacity='0.3'/%3E%3Crect x='100' y='120' width='200' height='260' rx='2' fill='none' stroke='%238b6f47' stroke-width='0.5' opacity='0.2'/%3E%3C/svg%3E") center/cover;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 7rem 4rem; }
+  .section-rule {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-rule::before {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--accent);
+  }
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; }
+  .section-body {
+    font-size: 1rem;
+    color: var(--stone);
+    line-height: 1.9;
+    max-width: 560px;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--ink); color: var(--cream); }
+  #services .section-title { color: var(--cream); }
+  #services .section-body { color: var(--sand); }
+  #services .section-eyebrow { color: var(--sand); }
+  #services .section-rule::before { background: var(--sand); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(200,184,154,0.2);
+    margin-top: 4rem;
+  }
+  .service-card {
+    background: var(--ink);
+    padding: 2.5rem;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .service-card:hover { background: #222220; }
+  .service-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgba(200,184,154,0.2);
+    line-height: 1;
+    margin-bottom: 1.25rem;
+  }
+  .service-name {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+  }
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--sand);
+    line-height: 1.8;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    background: var(--cream);
+    padding: 7rem 4rem;
+  }
+  .about-visual {
+    position: relative;
+    height: 500px;
+  }
+  .about-box-main {
+    position: absolute;
+    top: 0; left: 0; right: 3rem; bottom: 3rem;
+    background: var(--sand);
+    opacity: 0.35;
+  }
+  .about-box-accent {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 60%; height: 55%;
+    background: var(--warm-white);
+    border: 1px solid var(--light-rule);
+    display: flex; align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  .about-quote {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--stone);
+    line-height: 1.6;
+    text-align: center;
+  }
+  .about-line {
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .about-line-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 0.6rem;
+    flex-shrink: 0;
+  }
+  .about-line-text { font-size: 0.95rem; color: var(--stone); line-height: 1.7; }
+
+  /* ── PROCESS ── */
+  #process { background: var(--warm-white); }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-top: 4rem;
+  }
+  .step { position: relative; }
+  .step::after {
+    content: '';
+    position: absolute;
+    top: 1rem; left: calc(100% + 0.5rem);
+    width: calc(3rem - 1rem);
+    height: 1px;
+    background: var(--light-rule);
+  }
+  .step:last-child::after { display: none; }
+  .step-num {
+    font-family: var(--serif);
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--light-rule);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .step-title {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+  .step-desc { font-size: 0.88rem; color: var(--stone); line-height: 1.7; }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--ink);
+    text-align: center;
+    padding: 7rem 4rem;
+  }
+  #contact .section-title { color: var(--cream); margin-bottom: 0.75rem; }
+  #contact .section-body { color: var(--sand); margin: 0 auto 3rem; }
+  #contact .section-eyebrow { color: var(--sand); }
+  #contact .section-rule { justify-content: center; }
+  #contact .section-rule::before { background: var(--sand); }
+  .contact-detail {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .contact-sub {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-bottom: 3rem;
+  }
+  .contact-cta {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--cream);
+    padding: 1rem 2.25rem;
+    text-decoration: none;
+    transition: background 0.25s;
+  }
+  .contact-cta:hover { background: var(--sand); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111110;
+    padding: 2rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(200,184,154,0.15);
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--sand);
+    font-weight: 400;
+  }
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(200,184,154,0.5);
+    letter-spacing: 0.08em;
+  }
+  .footer-location {
+    font-size: 0.75rem;
+    color: rgba(200,184,154,0.5);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 5rem 2rem 3rem; }
+    .hero-left::after { display: none; }
+    .hero-right { height: 380px; }
+    section, #about, #contact { padding: 5rem 2rem; }
+    #about { grid-template-columns: 1fr; }
+    .about-visual { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .step::after { display: none; }
+    footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Candlewood <span>Services</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Cary, NC &nbsp;·&nbsp; Triangle Region</p>
+    <h1 class="hero-title">Built with<br><em>intention.</em><br>Delivered with<br>precision.</h1>
+    <p class="hero-sub">Full-service construction and remodeling for residential and small commercial properties. Backed by a team with deep roots in real estate investment and development.</p>
+    <a href="#contact" class="hero-cta">
+      Start a conversation
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-texture"></div>
+    <div class="hero-img-fill"></div>
+    <div class="hero-stat-block">
+      <div class="stat">
+        <div class="stat-number">$18B<span style="font-size:1.5rem">+</span></div>
+        <div class="stat-label">Real Estate Invested</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">25<span style="font-size:1.5rem">+</span></div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">NC</div>
+        <div class="stat-label">Triangle Region Focus</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">LLC</div>
+        <div class="stat-label">Licensed &amp; Insured</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-rule">
+    <span class="section-eyebrow">What We Do</span>
+  </div>
+  <h2 class="section-title">Every project,<br><em>fully managed</em></h2>
+  <p class="section-body">From initial scope to final walkthrough, Candlewood Services delivers construction and remodeling with professional oversight and accountability at every stage.</p>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <div class="service-name">Residential Remodeling</div>
+      <div class="service-desc">Kitchens, bathrooms, additions, and whole-home renovations. We bring investment-grade thinking to every residential project.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <div class="service-name">Small Commercial Build-Out</div>
+      <div class="service-desc">Office suites, retail spaces, and light commercial construction managed with the same rigor we apply to institutional real estate.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <div class="service-name">Fix &amp; Flip Projects</div>
+      <div class="service-desc">Rapid renovation and value-add repositioning for investment properties. Speed, quality, and cost discipline — all three.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <div class="service-name">Project Management</div>
+      <div class="service-desc">Full contractor coordination, scheduling, procurement, and quality control. We run the job so you don't have to.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">05</div>
+      <div class="service-name">Flooring &amp; Finishes</div>
+      <div class="service-desc">LVP, hardwood, tile, and carpet installation with material sourcing and subcontractor oversight included.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">06</div>
+      <div class="service-name">Renovation Consulting</div>
+      <div class="service-desc">Scope development, contractor vetting, budget review, and investment analysis for owners and operators.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div id="about">
+  <div class="about-visual">
+    <div class="about-box-main"></div>
+    <div class="about-box-accent">
+      <p class="about-quote">"Investment discipline applied to every square foot."</p>
+    </div>
+  </div>
+  <div>
+    <div class="section-rule reveal">
+      <span class="section-eyebrow">About Us</span>
+    </div>
+    <h2 class="section-title reveal">Experienced operators.<br><em>Exceptional results.</em></h2>
+    <p class="section-body reveal" style="margin-bottom: 2.5rem;">Candlewood Services LLC is a Cary, NC–based construction and remodeling firm built on a foundation of real estate investment expertise. Our leadership team has participated in over $18 billion of real estate transactions across 25 years — bringing institutional-grade discipline to residential and commercial projects of all sizes.</p>
+
+    <div class="about-line reveal">
+      <div class="about-line-dot"></div>
+      <div class="about-line-text"><strong>Deep Triangle market knowledge</strong> — We operate across Durham, Cary, Raleigh, and the broader Research Triangle, with an intimate understanding of local market dynamics, permit processes, and subcontractor networks.</div>
+    </div>
+    <div class="about-line reveal">
+      <div class="about-line-dot"></div>
+      <div class="about-line-text"><strong>Investment-minded execution</strong> — Every decision is evaluated for its impact on project ROI, timeline, and asset quality. We think like owners because we are owners.</div>
+    </div>
+    <div class="about-line reveal">
+      <div class="about-line-dot"></div>
+      <div class="about-line-text"><strong>Transparent, direct communication</strong> — Clients receive clear scopes, honest budgets, and regular project updates. No surprises.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-rule reveal">
+    <span class="section-eyebrow">How We Work</span>
+  </div>
+  <h2 class="section-title reveal">A disciplined<br><em>process</em></h2>
+  <p class="section-body reveal">Every Candlewood Services engagement follows a structured approach that keeps projects on time, on budget, and on spec.</p>
+
+  <div class="process-steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-title">Scope & Consult</div>
+      <div class="step-desc">We assess the property, define the project scope, and develop a detailed budget before any work begins.</div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <div class="step-title">Plan & Procure</div>
+      <div class="step-desc">Materials are sourced, subcontractors are selected, and a detailed project schedule is established.</div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <div class="step-title">Execute & Oversee</div>
+      <div class="step-desc">Active project management throughout construction, with daily site coordination and quality checkpoints.</div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <div class="step-title">Deliver & Close</div>
+      <div class="step-desc">Final walkthrough, punch list completion, and handoff documentation — so every project closes clean.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-rule" style="justify-content:center;">
+    <span class="section-eyebrow">Get in Touch</span>
+  </div>
+  <h2 class="section-title">Ready to build<br><em>something?</em></h2>
+  <p class="section-body">Whether you're planning a renovation, evaluating a property, or looking for a reliable construction partner in the Triangle — we'd like to hear from you.</p>
+
+  <div class="contact-detail">Cary, North Carolina</div>
+  <div class="contact-sub">Serving the Triangle Region &nbsp;·&nbsp; Durham &nbsp;·&nbsp; Raleigh &nbsp;·&nbsp; Cary &nbsp;·&nbsp; Chapel Hill</div>
+
+  <a href="/cdn-cgi/l/email-protection#f29b9c949db291939c969e97859d9d96819780849b919781dc919d9f" class="contact-cta">
+    <span class="__cf_email__" data-cfemail="3950575f56795a58575d555c4e56565d4a5c4b4f505a5c4a175a5654">[email&#160;protected]</span>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Candlewood Services LLC</div>
+  <div class="footer-copy">&copy; 2025 Candlewood Services LLC. All rights reserved.</div>
+  <div class="footer-location">Cary, NC &nbsp;·&nbsp; Triangle Region</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+     
